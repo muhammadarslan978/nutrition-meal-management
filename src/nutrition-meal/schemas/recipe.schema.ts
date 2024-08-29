@@ -1,3 +1,4 @@
+// recipe.schema.ts
 import { Document, Schema, model } from 'mongoose';
 
 interface IRecipe extends Document {

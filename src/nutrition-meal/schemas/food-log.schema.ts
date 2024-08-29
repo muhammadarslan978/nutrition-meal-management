@@ -1,3 +1,4 @@
+// food-log.schema.ts
 import { Document, Schema, model, Types } from 'mongoose';
 
 interface IFoodLog extends Document {
@@ -6,7 +7,7 @@ interface IFoodLog extends Document {
   date: Date;
   meals: {
     meal_type: string;
-    recipe: Types.ObjectId;
+    recipe: Types.ObjectId; // Reference to Recipe document
     quantity: number;
     calories: number;
   }[];
@@ -26,7 +27,7 @@ const FoodLogSchema = new Schema<IFoodLog>({
   meals: [
     {
       meal_type: { type: String, required: true },
-      recipe: { type: Schema.Types.ObjectId, ref: 'Recipe' },
+      recipe: { type: Schema.Types.ObjectId, ref: 'Recipe' }, // Reference to Recipe documents
       quantity: { type: Number, required: true },
       calories: { type: Number, required: true },
     },

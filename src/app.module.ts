@@ -2,11 +2,9 @@ import { Logger, Module, OnModuleInit } from '@nestjs/common';
 import { ConfigModule } from '@nestjs/config';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
-import { MealPlanModule } from './meal-plan/meal-plan.module';
-import { RecipeModule } from './recipe/recipe.module';
-import { FoodLogModule } from './food-log/food-log.module';
 import { MongooseModule } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
+import { NutritionModule } from './nutrition-meal/nutrition.module';
 
 @Module({
   imports: [
@@ -14,9 +12,7 @@ import mongoose from 'mongoose';
       isGlobal: true,
     }),
     MongooseModule.forRoot(process.env.MONGO_URI),
-    MealPlanModule,
-    RecipeModule,
-    FoodLogModule,
+    NutritionModule,
   ],
   controllers: [AppController],
   providers: [AppService],

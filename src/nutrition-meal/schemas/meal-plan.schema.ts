@@ -1,3 +1,4 @@
+// meal-plan.schema.ts
 import { Document, Schema, model, Types } from 'mongoose';
 
 interface IMealPlan extends Document {
