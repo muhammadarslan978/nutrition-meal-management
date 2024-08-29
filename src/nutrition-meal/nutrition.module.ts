@@ -13,6 +13,8 @@ import { MealPlanRepository } from './repositories/meal-plan.repository';
 import { RecipeRepository } from './repositories/recipe.repository';
 import { FoodLogRepository } from './repositories/food-log.repository';
 import { MealPlanService } from './services/ meal-plan.service';
+import { HttpModule } from '@nestjs/axios';
+import { AuthModule } from 'src/auth/auth.module';
 
 @Module({
   imports: [
@@ -21,6 +23,8 @@ import { MealPlanService } from './services/ meal-plan.service';
       { name: 'Recipe', schema: RecipeSchema },
       { name: 'FoodLog', schema: FoodLogSchema },
     ]),
+    HttpModule,
+    AuthModule,
   ],
   controllers: [MealPlanController, RecipeController, FoodLogController],
   providers: [

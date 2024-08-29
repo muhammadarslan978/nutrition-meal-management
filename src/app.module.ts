@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { MongooseModule } from '@nestjs/mongoose';
 import mongoose from 'mongoose';
 import { NutritionModule } from './nutrition-meal/nutrition.module';
+import { AuthModule } from './auth/auth.module';
 
 @Module({
   imports: [
@@ -13,6 +14,7 @@ import { NutritionModule } from './nutrition-meal/nutrition.module';
     }),
     MongooseModule.forRoot(process.env.MONGO_URI),
     NutritionModule,
+    AuthModule,
   ],
   controllers: [AppController],
   providers: [AppService],
