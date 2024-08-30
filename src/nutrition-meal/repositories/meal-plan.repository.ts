@@ -1,13 +1,13 @@
-// meal-plan.repository.ts
 import { Model } from 'mongoose';
 import { Injectable } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 
 import { CreateMealPlanDto } from '../dtos/create-meal-plan.dto';
 import { IMealPlan } from '../schemas/meal-plan.schema';
+import { IMealPlanRepository } from '../interfaces/meal-plan-repository.interface';
 
 @Injectable()
-export class MealPlanRepository {
+export class MealPlanRepository implements IMealPlanRepository {
   constructor(
     @InjectModel('MealPlan') private readonly mealPlanModel: Model<IMealPlan>,
   ) {}

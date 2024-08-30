@@ -4,6 +4,6 @@ export class CreateMealPlanDto {
   readonly description: string;
   readonly diet_type: string;
   readonly calories: number;
-  readonly recipes: string[]; // Array of Recipe IDs
-  readonly nutritionist_id: string;
+  readonly recipes: string[];
+  nutritionist_id: string;
 }

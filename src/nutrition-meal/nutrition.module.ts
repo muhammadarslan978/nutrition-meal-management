@@ -15,6 +15,7 @@ import { FoodLogRepository } from './repositories/food-log.repository';
 import { MealPlanService } from './services/ meal-plan.service';
 import { HttpModule } from '@nestjs/axios';
 import { AuthModule } from 'src/auth/auth.module';
+import { HttpAxiosClient } from './services/http-axios-client.service';
 
 @Module({
   imports: [
@@ -31,9 +32,16 @@ import { AuthModule } from 'src/auth/auth.module';
     MealPlanService,
     RecipeService,
     FoodLogService,
-    MealPlanRepository,
     RecipeRepository,
     FoodLogRepository,
+    {
+      provide: 'IMealPlanRepository',
+      useClass: MealPlanRepository,
+    },
+    {
+      provide: 'IHttpClient',
+      useClass: HttpAxiosClient,
+    },
   ],
 })
 export class NutritionModule {}
